@@ -1,92 +1,541 @@
-body {
-  background-image: linear-gradient(100deg, rgba(0, 0, 0, 0.844), transparent),
-    url(./header-image.png);
-  margin-top: 20px;
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-.logo img {
-  height: 40px;
-}
-select {
-  padding-left: 19px;
-  display: flex;
-  align-content: center;
-  justify-items: center;
-  font-size: 16px;
-  height: 30px;
-  width: 120px;
-  font-family: sans-serif;
-  background-color: transparent;
-  color: rgba(255, 255, 255, 0.862);
-  border: 1px solid #8b8b8bdc, transparent;
-  border-radius: 4px;
-}
-.signin button {
-  font-family: sans-serif;
-  font-size: 16px;
-  font-size: medium;
-  height: 30px;
-  width: 75px;
-  color: rgba(255, 255, 255, 0.84);
-  background-color: rgb(229, 9, 20);
-  border-radius: 4px;
-  border: 1px solid rgb(229, 9, 20);
-}
-h1 {
-  color: white;
-  font-family: sans-serif;
-  font-size: 47px;
-  font-weight: 1000;
-}
-h2 {
-  color: white;
-  font-family: sans-serif;
-  font-weight: 100;
-}
-h3 {
-  color: white;
-  font-family: sans-serif;
-  font-weight: 100;
-}
-input {
-  background: transparent;
-  border: 1px solid #8b8b8bdc;
-  height: 44px;
-  width: 320px;
-  border-radius: 4px;
-  font-size: 17px;
-  font-family: sans-serif;
-}
-button {
-  height: 48px;
-  width: 200px;
-  font-size: 17px;
-  border-radius: 4px;
-  border: 1px solid rgba(229, 9, 20);
-  background-color: rgb(229, 9, 20);
-  color: white;
-  font-family: sans-serif;
-}
-.upper {
-  display: flex;
-  justify-content: space-evenly;
-}
-.signin {
-  margin-left: 25px;
-}
-.engsignin{
-  margin-top: 5px;
-  display: flex;
-}
-h1{
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
+body {
+    color: white;
+    background-color: black;
+    line-height: 1.4;
 }
-.center{
-  margin: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+
+/* Netflix Homepage Container */
+.netflix-homepage {
+    background: url('https://assets.nflxext.com/ffe/siteui/vlv3/5e16108c-fd30-46de-9bb8-0b4e1bbbc509/29d8d7d7-83cc-4b5f-aa9b-6fd4f68bfaa6/IN-en-20240205-popsignuptwoweeks-perspective_alpha_website_large.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+    position: relative;
+}
+
+.netflix-homepage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    z-index: 1;
+}
+
+/* Header Styles */
+.netflix-header {
+    position: relative;
+    z-index: 2;
+    padding: 20px 50px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 45px;
+    width: auto;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Language Selector */
+.language-selector select {
+    padding: 8px 30px 8px 15px;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+}
+
+/* Buttons */
+.btn-secondary {
+    padding: 8px 16px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    padding: 15px 24px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.btn-primary span {
+    margin-left: 8px;
+    font-size: 1.2rem;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 150px 20px;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.hero h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* Sign-Up Form */
+.signup-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.form-group {
+    position: relative;
+    flex: 1;
+    min-width: 450px;
+}
+
+.form-group input {
+    width: 100%;
+    height: 60px;
+    padding: 16px 20px 0;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #8c8c8c;
+    border-radius: 4px;
+    color: white;
+}
+
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: #8c8c8c;
+    font-size: 16px;
+    transition: all 0.1s ease;
+    pointer-events: none;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label {
+    top: 7px;
+    transform: translateY(0);
+    font-size: 11px;
+}
+
+/* Features Section */
+.features {
+    position: relative;
+    z-index: 2;
+    padding: 70px 45px;
+    background-color: black;
+    border-top: 8px solid #222;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto 100px;
+}
+
+.feature.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-text {
+    flex: 1;
+    padding: 0 3rem;
+}
+
+.feature-text h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.feature-text p {
+    font-size: 1.5rem;
+}
+
+.feature-image {
+    flex: 1;
+    position: relative;
+}
+
+.feature-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* FAQ Section */
+.faq {
+    position: relative;
+    z-index: 2;
+    padding: 70px 45px;
+    background-color: black;
+    border-top: 8px solid #222;
+    text-align: center;
+}
+
+.faq h2 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+.faq-items {
+    max-width: 815px;
+    margin: 0 auto 50px;
+}
+
+.faq-item {
+    margin-bottom: 8px;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 24px;
+    background-color: #303030;
+    color: white;
+    border: none;
+    text-align: left;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-answer {
+    background-color: #303030;
+    text-align: left;
+    padding: 24px;
+    margin-top: 1px;
+    font-size: 24px;
+    display: none;
+}
+
+.faq-answer.active {
+    display: block;
+}
+
+.bottom-signup {
+    margin-top: 60px;
+}
+
+.bottom-signup h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+.netflix-footer {
+    position: relative;
+    z-index: 2;
+    padding: 70px 45px;
+    background-color: black;
+    border-top: 8px solid #222;
+    color: #757575;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin-bottom: 30px;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    color: #757575;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.country {
+    font-size: 13px;
+    margin-top: 24px;
+}
+
+/* Sign In Page Styles */
+.signin-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-box {
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    padding: 60px 68px 40px;
+    width: 450px;
+    max-width: 100%;
+}
+
+.signin-header {
+    margin-bottom: 28px;
+}
+
+.signin-header h1 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 28px;
+}
+
+.signin-form input {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    font-size: 16px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.signin-form button {
+    width: 100%;
+    padding: 16px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.remember-help {
+    display: flex;
+    justify-content: space-between;
+    color: #b3b3b3;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    width: auto;
+    margin-right: 5px;
+}
+
+.need-help {
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+.signup-option {
+    color: #737373;
+    margin-top: 16px;
+    font-size: 16px;
+}
+
+.signup-option a {
+    color: white;
+    text-decoration: none;
+}
+
+.signup-option a:hover {
+    text-decoration: underline;
+}
+
+.learn-more {
+    color: #737373;
+    font-size: 13px;
+    margin-top: 11px;
+}
+
+.learn-more a {
+    color: #0071eb;
+    text-decoration: none;
+}
+
+.learn-more a:hover {
+    text-decoration: underline;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 950px) {
+    .hero {
+        padding: 100px 20px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.25rem;
+    }
+    
+    .signup-form {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .form-group {
+        min-width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .btn-primary {
+        width: auto;
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+    
+    .feature {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .feature.reverse {
+        flex-direction: column;
+    }
+    
+    .feature-text {
+        padding: 0;
+        margin-bottom: 30px;
+    }
+    
+    .feature-text h2 {
+        font-size: 2rem;
+    }
+    
+    .feature-text p {
+        font-size: 1.25rem;
+    }
+    
+    .faq h2 {
+        font-size: 2rem;
+    }
+    
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .signin-box {
+        padding: 40px 30px;
+        width: 90%;
+    }
+}
+
+@media (max-width: 550px) {
+    .netflix-header {
+        padding: 15px 20px;
+    }
+    
+    .logo img {
+        height: 36px;
+    }
+    
+    .hero {
+        padding: 70px 15px;
+    }
+    
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    .faq-question,
+    .faq-answer {
+        font-size: 18px;
+        padding: 15px;
+    }
 }
